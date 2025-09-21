@@ -1,0 +1,11 @@
+Best practice:
+Keep your main project documentation in the root-level docs directory. This is the standard approach for most Python and open-source projects, as it centralizes documentation for users and contributors.
+
+However:
+If a library inside src is large or intended to be reusable/standalone, it’s reasonable to keep additional, library-specific documentation inside a doc/ or docs subdirectory within that library’s folder (e.g., src/omega_inverter/doc/). This is useful for developer notes, API docs, or technical details specific to that module.
+
+Summary:
+
+General/project-wide docs: docs at the root.
+Library-specific, technical, or developer docs: doc/ or docs inside the library folder (optional, as needed).
+Most projects use both: root-level docs for users, and per-library docs for developers.

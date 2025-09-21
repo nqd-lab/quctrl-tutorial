@@ -1,0 +1,5 @@
+# configure such that it can be used as follows:
+
+> python3 -m venv .myenv
+> source .myenv/bin/activate
+> pip install -r ./requirements.txt
