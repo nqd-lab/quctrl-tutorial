@@ -1,0 +1,1 @@
+This library is a modified version of functionality provided by [`QuTip`](https://qutip.org/). 

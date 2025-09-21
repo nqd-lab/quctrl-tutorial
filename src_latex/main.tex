@@ -1,6 +1,133 @@
-% main.tex
-\newif\ifmainmode        \mainmodetrue
-\newif\ifsuppmode         \suppmodefalse
-\newif\ifcombinedmode \combinedmodefalse
+\documentclass[floatfix,aps,reprint,superscriptaddress,amsmath,amssymb,footnotebib,onecolumn]{revtex4-2}
+\usepackage{amsmath}
 
-\input{paper_body.tex}
+\usepackage{graphicx}
+\graphicspath{{./}{figs/.}}
+
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{float}
+\usepackage[english]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[colorlinks=true,citecolor=Cerulean,linkcolor=RubineRed,urlcolor=Cerulean]{hyperref}
+\usepackage{booktabs}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{txfonts}
+\usepackage{framed}
+\usepackage{dsfont}
+\usepackage{soul}
+
+%\usepackage{ulem} %rm before submission
+
+\usepackage{tabularray}
+\usepackage{array}
+\usepackage{calc}
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\xmark}{\ding{55}}%
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\green}[1]{\textcolor{ForestGreen}{#1}}
+
+\newcommand{\steve}[1]{#1}
+\newcommand{\callum}[1]{\textcolor{blue}{[#1]}}
+\newcommand{\marin}[1]{\textcolor{cyan}{[#1]}}
+\newcommand{\pablo}[1]{{\color{brown}[#1]}}
+\newcommand{\ciref}{\textcolor{ForestGreen}{[REF]}}
+
+% define path to figs
+\graphicspath{ {../visual_elements/figs/generated_figs/} }
+
+
+
+% To number equations as (A.1), (B.1), etc...
+% \numberwithin{equation}{subsection}
+
+\begin{document}
+
+\title{Taming quantum systems:\\ A tutorial for using shortcuts-to-adiabaticity, quantum optimal control, \& reinforcement learning \\ 
+%\steve{?? I'm just throwing ideas out!}\\
+%\marin{Foundations and Applications of Quantum Control: \\ a Pedagogical Introduction to Shortcuts-to-Adiabaticity, Optimal Control, and Reinforcement Learning} \\
+%\marin{Understanding Shortcuts-to-Adiabaticity, Quantum Optimal Control, and Reinforcement Learning: a Pedagogical Introduction to Quantum Dynamics}
+}
+
+
+
+\author{Callum W. Duncan}
+\affiliation{Aegiq Ltd., Cooper Buildings, Arundel Street, Sheffield, S1 2NS, United Kingdom}
+\affiliation{Department of Physics, SUPA and University of Strathclyde, Glasgow G4 0NG, United Kingdom}
+\author{Pablo M. Poggi}
+\affiliation{Department of Physics, SUPA and University of Strathclyde, Glasgow G4 0NG, United Kingdom}
+\affiliation{Center for Quantum Information and Control, Department of Physics and Astronomy, University of New Mexico, Albuquerque, New Mexico 87131, USA}
+\author{Marin Bukov}
+\affiliation{Max Planck Institute for the Physics of Complex Systems, Nöthnitzer Str. 38, 01187 Dresden, Germany}
+\author{Nikolaj Thomas Zinner}
+\affiliation{Department of Physics and Astronomy, Aarhus University, DK-8000 Aarhus C, Denmark}
+\affiliation{Kvantify Aps, DK-2100 Copenhagen, Denmark}
+\author{Steve Campbell}
+\affiliation{School of Physics, University College Dublin, Belfield, Dublin 4, Ireland}
+\affiliation{Centre for Quantum Engineering, Science, and Technology, University College Dublin, Belfield, Dublin 4, Ireland}
+\affiliation{Dahlem Center for Complex Quantum Systems, Freie Universit\"at Berlin, Arnimallee 14, 14195 Berlin, Germany}
+
+\begin{abstract}
+\vskip1cm
+Precise manipulation of quantum effects at the atomic and nanoscale has become an essential task in ongoing scientific and technological endeavours. Quantum control methods are thus routinely exploited for research in areas such as quantum materials, quantum chemistry, and atomic and molecular physics, as well as in the development of quantum technologies like computing, simulation, and sensing.  Here, we present a pedagogical introduction to the basics of quantum control methods in tutorial form, with the aim of providing newcomers to the field with the core concepts and practical tools to use these methods in their research. We focus on three areas: shortcuts to adiabaticity, quantum optimal control, and machine-learning-based control. We lay out the basic theoretical elements of each area in a pedagogical way and describe their application to a series of example cases. For these, we include detailed analytical derivations as well as extensive numerical results.
+As an outlook, we discuss quantum control methods in the broader context of quantum technologies development and complex quantum systems research, outlining potential connections and synergies between them.
+\end{abstract}
+\date{\today}
+\maketitle
+
+\vskip1cm
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\columnwidth]{QOC_landscape.png}
+\end{figure}
+
+
+
+\clearpage
+
+\tableofcontents
+\clearpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{./sections/I_introduction.tex}
+%\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{./sections/IIA_shortcuts_to_adiabaticity.tex}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{./sections/IIB_optimal_control.tex}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{./sections/IIC_reinforcement_learning.tex}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{./sections/III_outlook.tex}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\bibliographystyle{apsrev4-2}
+\bibliography{references}
+
+\end{document}

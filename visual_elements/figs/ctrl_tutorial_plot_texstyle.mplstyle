@@ -1,0 +1,6 @@
+# plt.style.use("ctrl_tutorial_plot_texstyle.mplstyle")
+
+font.family: serif
+
+text.usetex : True
+text.latex.preamble : \usepackage{bm}

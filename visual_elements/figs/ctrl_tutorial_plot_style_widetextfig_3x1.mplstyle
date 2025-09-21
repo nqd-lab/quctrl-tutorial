@@ -1,0 +1,16 @@
+# plt.style.use("ctrl_tutorial_plot_style_widetextfig_3x1.mplstyle")
+
+axes.labelsize : 24
+xtick.labelsize : 22
+ytick.labelsize : 22
+xtick.direction : in
+ytick.direction : in
+xtick.bottom : True
+xtick.top : True
+ytick.left : True
+ytick.right : True
+xtick.minor.visible : True
+ytick.minor.visible : True
+legend.fontsize : 18
+figure.autolayout : False
+figure.constrained_layout.use : True
