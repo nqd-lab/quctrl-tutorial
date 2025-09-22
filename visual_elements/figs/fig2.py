@@ -10,7 +10,7 @@ save_dir="./generated_figs/"
 
 
 
-path = "../../data/processed/Fig2/"
+path = "../../data/raw/Fig2/"
 
 datafig1bg = np.loadtxt(path+"Fig2_Bare_Ground.dat")
 datafig1be = np.loadtxt(path+"Fig2_Bare_Excited.dat")

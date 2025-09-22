@@ -64,7 +64,7 @@ quctrl-tutorial/
 ├── README.md                   # This file - project documentation
 ├── requirements.txt            # Python dependencies
 ├── data/                       # Research data and results
-│   └── processed/             # Processed datasets organized by figure
+│   └── raw/                   # Raw datasets organized by figure
 │       ├── Fig2/              # Data for Figure 2 (eigenstate evolution)
 │       ├── Fig3/              # Data for Figure 3 (STA protocols)
 │       ├── Fig4a/             # Data for Figure 4a (LMG model)
@@ -110,13 +110,13 @@ quctrl-tutorial/
 
 ## Data
 
-Data is stored under `./data/processed/`, and can be generated using the jupyter notebooks in `src_code/`. 
+Data is stored under `./data/raw/`, and can be generated using the jupyter notebooks in `src_code/`. 
 
 The data formats used are `.dat`, `.npz`, and `.txt`.
 
 ## Figures
 
-Reproducing the figures uses the processed data. The figure pdf's are stored under `./visual_elements/figs/generated_figs/`. 
+Reproducing the figures uses raw data. The figure pdf's are stored under `./visual_elements/figs/generated_figs/`. 
 
 ```bash
 # Navigate to figure directory

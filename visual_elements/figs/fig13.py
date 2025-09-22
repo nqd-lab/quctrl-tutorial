@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 mpl.use('MacOSX')
 
-path = "../../data/processed/Fig13/"
+path = "../../data/raw/Fig13/"
 
 plt.style.use("./ctrl_tutorial_plot_style_widetextfig_3x1.mplstyle")
 plt.style.use("./ctrl_tutorial_plot_texstyle.mplstyle")

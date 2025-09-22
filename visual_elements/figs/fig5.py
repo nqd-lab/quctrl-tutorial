@@ -5,7 +5,7 @@ plt.style.use("./ctrl_tutorial_plot_style.mplstyle")
 plt.style.use("./ctrl_tutorial_plot_texstyle.mplstyle")
 save_dir="./generated_figs/"
 
-path = "../../data/processed/Fig5/"
+path = "../../data/raw/Fig5/"
 
 fig, axs = plt.subplots(3,1, sharex=True)
 fig.subplots_adjust(wspace=1)

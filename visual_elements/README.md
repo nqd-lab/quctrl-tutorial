@@ -4,4 +4,4 @@ The short videos accompanying the manuscript (see Fig 12 b) can be generated usi
 
 All tables can be found in the corresponding `.tex` files under `src_latex/`.
 
-All data is loaded from `../data/processed/`.
+All data is loaded from `../data/raw/`.

@@ -8,7 +8,7 @@ np.random.seed(seed)
 # fix output array
 np.set_printoptions(suppress=True,precision=2) 
 
-path = "../../data/processed/Fig12a/"
+path = "../../data/raw/Fig12a/"
 
 
 plt.style.use("./ctrl_tutorial_plot_style.mplstyle")

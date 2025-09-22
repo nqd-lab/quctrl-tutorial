@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 plt.style.use("./ctrl_tutorial_plot_texstyle.mplstyle")
 save_dir="./generated_figs/"
 
-path = "../../data/processed/Fig8a/"
+path = "../../data/raw/Fig8a/"
 
 # General definitions
 omega = 1 # Rabi freq

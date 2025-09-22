@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 plt.style.use("./ctrl_tutorial_plot_texstyle.mplstyle")
 save_dir="./generated_figs/"
 
-path = "../../data/processed/Fig7a/"
+path = "../../data/raw/Fig7a/"
 
 # General definitions
 Delta = 1 # LZ gap

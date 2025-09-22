@@ -8,7 +8,7 @@ save_dir="./generated_figs/"
 
 
 
-path = "../../data/processed/Fig4a/"
+path = "../../data/raw/Fig4a/"
 
 
 datafig4a1 = np.loadtxt(path+"Fig4_LMG_FullSTA_Black.dat")

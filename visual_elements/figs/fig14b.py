@@ -10,7 +10,7 @@ matplotlib.use('Qt5Agg')
 # plt.tick_params(labelsize=18)
 # plt.rcParams["figure.figsize"] = [6.5, 5.5] 
 
-path = "../../data/processed/Fig14b/"
+path = "../../data/raw/Fig14b/"
 
 plt.style.use("./ctrl_tutorial_plot_style.mplstyle")
 plt.style.use("./ctrl_tutorial_plot_texstyle.mplstyle")

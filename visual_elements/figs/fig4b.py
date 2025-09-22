@@ -8,7 +8,7 @@ save_dir="./generated_figs/"
 
 
 
-path = "../../data/processed/Fig4b/"
+path = "../../data/raw/Fig4b/"
 
 
 datafig4b = np.loadtxt(path+"Fig4b_LMG_ContourPlot.dat")

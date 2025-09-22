@@ -10,7 +10,7 @@ import matplotlib as mpl
 plt.style.use("./ctrl_tutorial_plot_texstyle.mplstyle")
 save_dir="./generated_figs/"
 
-path = "../../data/processed/Fig9/"
+path = "../../data/raw/Fig9/"
 
 # General definitions
 red_new = "#A52639"

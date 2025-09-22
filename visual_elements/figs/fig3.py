@@ -8,7 +8,7 @@ save_dir="./generated_figs/"
 
 
 
-path = "../../data/processed/Fig3/"
+path = "../../data/raw/Fig3/"
 
 datafig2a = np.loadtxt(path+"Fig3_A1_SingleBody_Red.dat")
 datafig2b = np.loadtxt(path+"Fig3_A2_TwoBody_Orange.dat")
