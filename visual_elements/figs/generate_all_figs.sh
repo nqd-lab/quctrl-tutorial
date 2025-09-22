@@ -12,7 +12,7 @@ python fig7a.py
 python fig7b.py
 python fig8a.py
 python fig8b.py
-
+python fig9.py
 
 # Marin 
 python fig12a.py 

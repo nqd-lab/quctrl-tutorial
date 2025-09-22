@@ -63,9 +63,7 @@ quctrl-tutorial/
 ├── LICENSE-DATA                # CC-BY 4.0 License for data
 ├── README.md                   # This file - project documentation
 ├── requirements.txt            # Python dependencies
-├── vLOG.md                     # Version log and changelog
 ├── data/                       # Research data and results
-│   ├── README.md              # Data-specific documentation
 │   └── processed/             # Processed datasets organized by figure
 │       ├── Fig2/              # Data for Figure 2 (eigenstate evolution)
 │       ├── Fig3/              # Data for Figure 3 (STA protocols)
@@ -76,6 +74,7 @@ quctrl-tutorial/
 │       ├── Fig7b/             # Data for Figure 7b (protocol optimization)
 │       ├── Fig8a/             # Data for Figure 8a (quantum control)
 │       ├── Fig8b/             # Data for Figure 8b (control performance)
+│       ├── Fig9/              # Data for Figure 9 (entangled state generation)
 │       ├── Fig12a/            # Data for Figure 12a (RL training)
 │       ├── Fig13/             # Data for Figure 13 (STA protocols)
 │       └── Fig14b/            # Data for Figure 14b (quantum noise effects)
@@ -89,11 +88,13 @@ quctrl-tutorial/
 │       └── Bloch_sphere_lib/  # Bloch sphere visualization utilities
 ├── src_latex/                  # LaTeX source for the manuscript
 │   ├── main.tex               # Main manuscript file
-│   ├── paper_body.tex         # Paper content
-│   ├── supp.tex               # Supplementary material
-│   ├── combined.tex           # Combined document
 │   ├── references.bib         # Bibliography
-│   └── README.md              # LaTeX-specific documentation
+│   └── sections/              # Individual manuscript sections
+│       ├── I_introduction.tex             # Introduction section
+│       ├── IIA_shortcuts_to_adiabaticity.tex # STA methodology section
+│       ├── IIB_optimal_control.tex       # Optimal control section
+│       ├── IIC_reinforcement_learning.tex # RL methodology section
+│       └── III_outlook.tex               # Conclusions and outlook
 └── visual_elements/            # Figures, tables, and visual content
     ├── README.md              # Visual elements documentation
     ├── figs/                  # Figure generation and outputs
@@ -101,9 +102,9 @@ quctrl-tutorial/
     │   ├── *.mplstyle         # Matplotlib style files
     │   ├── *.ai               # Adobe Illustrator files
     │   ├── *.key              # Keynote presentation files
+    │   ├── *.svg              # SVG vector graphics files
     │   ├── generate_all_figs.sh  # Script to generate all figures
     │   └── generated_figs/    # Output directory for generated figures
-    ├── tables/                # Table data and formatting
     └── videos/                # Video files
 ```
 
@@ -131,25 +132,26 @@ sh generate_all_figs.sh
 ### Scripts
 All figures can be regenerated using Python scripts located in:
 
-
+- `visual_elements/figs/fig1.svg` → Figure 1
 - `visual_elements/figs/fig2.py` → Figure 2
 - `visual_elements/figs/fig3.py` → Figure 3
 - `visual_elements/figs/fig4a.py` → Figure 4a
 - `visual_elements/figs/fig4b.py` → Figure 4b
 - `visual_elements/figs/fig5.py` → Figure 5
-
+- `visual_elements/figs/fig6.svg` → Figure 6
 - `visual_elements/figs/fig7a.py` → Figure 7a
 - `visual_elements/figs/fig7b.py` → Figure 7b 
 - `visual_elements/figs/fig8a.py` → Figure 8a
 - `visual_elements/figs/fig8b.py` → Figure 8b    
-
+- `visual_elements/figs/fig9.py` → Figure 9  
 - `visual_elements/figs/fig10.ai` → Figure 10
 - `visual_elements/figs/fig11.key` → Figure 11
 - `visual_elements/figs/fig12a.py` → Figure 12a 
 - `visual_elements/figs/fig12b.key` → Figure 12b 
 - `visual_elements/figs/fig13.py` → Figure 13
 - `visual_elements/figs/fig14a.key` → Figure 14a 
-- `visual_elements/figs/fig12b.py` → Figure 14b 
+- `visual_elements/figs/fig14b.py` → Figure 14b
+- `visual_elements/figs/fig15.svg` → Figure 15 
 
 ## Tables
 
@@ -182,5 +184,3 @@ This project uses multiple licenses based on content type:
 **Repository Version**: v1.0  
 **Last Updated**: September 21, 2025  
 **Zenodo DOI**: https://doi.org/10.5281/zenodo.17169846
-
-
