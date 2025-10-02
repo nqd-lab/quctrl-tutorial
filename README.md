@@ -1,24 +1,29 @@
 # Taming quantum systems: A tutorial for using shortcuts-to-adiabaticity, quantum optimal control, and reinforcement learning (arXiv:2501.16436)
 
-This Zenodo record contains the complete data for the manuscript "Taming quantum systems: A tutorial for using shortcuts-to-adiabaticity, quantum optimal control, and reinforcement learning" by Callum W. Duncan, Pablo M. Poggi, Marin Bukov, Nikolaj Thomas Zinner, and Steve Campbell. The repository provides jupyter notebooks, generated data, and publication figures necessary to reproduce the results presented in the paper.
+This Zenodo record contains the complete data for the manuscript "Taming Quantum Systems: A Tutorial for Using Shortcuts-To-Adiabaticity, Quantum Optimal Control, and Reinforcement Learning" by Callum W. Duncan, Pablo M. Poggi, Marin Bukov, Nikolaj Thomas Zinner, and Steve Campbell. The repository provides jupyter notebooks, generated data, and publication figures necessary to reproduce the results presented in the paper.
 
 ## Citation
 
 ### Plain Text Citation
-Callum W. Duncan, Pablo M. Poggi, Marin Bukov, Nikolaj Thomas Zinner, and Steve Campbell, "Taming quantum systems: A tutorial for using shortcuts-to-adiabaticity, quantum optimal control, and reinforcement learning", arXiv:2501.16436.
+Callum W. Duncan, Pablo M. Poggi, Marin Bukov, Nikolaj Thomas Zinner, and Steve Campbell, "Taming Quantum Systems: A Tutorial for Using Shortcuts-To-Adiabaticity, Quantum Optimal Control, and Reinforcement Learning", arXiv:2501.16436.
 
 ### BibTeX Citation
 ```bibtex
+
 @article{duncan2025taming,
-  title={Taming quantum systems: A tutorial for using shortcuts-to-adiabaticity, quantum optimal control, and reinforcement learning},
+  title = {Taming Quantum Systems: A Tutorial for Using Shortcuts-To-Adiabaticity, Quantum Optimal Control, and Reinforcement Learning},
   author={Duncan, Callum W and Poggi, Pablo M and Bukov, Marin and Zinner, Nikolaj Thomas and Campbell, Steve},
-  journal={arXiv preprint arXiv:2501.16436},
-  year={2025}
+  journal = {PRX Quantum},
+  publisher = {American Physical Society},
+  doi = {10.1103/j8c7-v2hd},
+  url = {https://link.aps.org/doi/10.1103/j8c7-v2hd}
 }
+
 ```
 
 ## Links
 - **arXiv**: https://doi.org/10.48550/arXiv.2501.16436
+- **PRX Quantum**: https://doi.org/10.1103/j8c7-v2hd
 - **GitHub Repository**: https://github.com/nqd-lab/quctrl-tutorial
 - **Zenodo DOI**: https://doi.org/10.5281/zenodo.17169846
 

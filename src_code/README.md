@@ -1,6 +1,6 @@
 # Jupyter Notebooks to "Taming quantum systems: A tutorial for using shortcuts-to-adiabaticity, quantum optimal control, and reinforcement learning"
 
-This repository contains the `python` notebooks accompanying the paper *"Taming quantum systems: A tutorial for using shortcuts-to-adiabaticity, quantum optimal control, and reinforcement learning"*, [arXiv:2501.16436](https://arxiv.org/abs/2501.16436).
+This repository contains the `python` notebooks accompanying the paper *"Taming Quantum Systems: A Tutorial for Using Shortcuts-To-Adiabaticity, Quantum Optimal Control, and Reinforcement Learning"*, [arXiv:2501.16436](https://arxiv.org/abs/2501.16436).
 
 ## 📂 Repository Structure
 
