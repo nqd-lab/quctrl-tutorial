@@ -4,11 +4,6 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Qt5Agg')
 
-# #os.environ["PATH"] += ':/usr/local/texlive/2015/bin/x86_64-darwin' # <-- change to local path
-# plt.rc('text', usetex=True)
-# plt.rc('font', **dict(family='serif', size=18) )
-# plt.tick_params(labelsize=18)
-# plt.rcParams["figure.figsize"] = [6.5, 5.5] 
 
 path = "../../data/raw/Fig14b/"
 

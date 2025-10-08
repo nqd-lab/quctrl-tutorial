@@ -3,17 +3,8 @@ import os, sys
 import numpy as np
 import matplotlib.pyplot as plt
 
-import matplotlib
-import matplotlib.pyplot as plt
-
-# #os.environ["PATH"] += ':/usr/local/texlive/2015/bin/x86_64-darwin' # <-- change to local path
-# plt.rc('text', usetex=True)
-# plt.rc('font', **dict(family='serif', size=16) )
-# plt.tick_params(labelsize=18)
-# plt.rcParams["figure.figsize"] = [6.5, 5.5] 
-
 import matplotlib as mpl
-mpl.use('MacOSX')
+mpl.use('Qt5Agg')
 
 path = "../../data/raw/Fig13/"
 

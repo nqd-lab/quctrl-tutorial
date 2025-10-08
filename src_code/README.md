@@ -20,10 +20,16 @@ src_code/
 ```bash
 # Create virtual environment
 python -m venv .quctrl
-source .quctrl/bin/activate  # On Windows: .quctrl\Scripts\activate
+```
+```bash
+source .quctrl/bin/activate # On Windows: quctrl\Scripts\activate
+```
 
+```bash
 # Install all dependencies
 python -m pip install --upgrade pip
+```
+```bash
 python -m pip install -r requirements.txt
 ```
 

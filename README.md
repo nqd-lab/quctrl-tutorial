@@ -1,4 +1,4 @@
-# Taming quantum systems: A tutorial for using shortcuts-to-adiabaticity, quantum optimal control, and reinforcement learning (arXiv:2501.16436)
+# Taming Quantum Systems: A Tutorial for Using Shortcuts-To-Adiabaticity, Quantum Optimal Control, and Reinforcement Learning (arXiv:2501.16436)
 
 This Zenodo record contains the complete data for the manuscript "Taming Quantum Systems: A Tutorial for Using Shortcuts-To-Adiabaticity, Quantum Optimal Control, and Reinforcement Learning" by Callum W. Duncan, Pablo M. Poggi, Marin Bukov, Nikolaj Thomas Zinner, and Steve Campbell. The repository provides jupyter notebooks, generated data, and publication figures necessary to reproduce the results presented in the paper.
 
@@ -32,7 +32,8 @@ Callum W. Duncan, Pablo M. Poggi, Marin Bukov, Nikolaj Thomas Zinner, and Steve 
 ## Table of Contents
 - [Installation and Setup](#installation-and-setup)
 - [Directory Structure](#directory-structure)
-- [Data Formats](#data-formats)
+- [Notebooks](#notebooks)
+- [Data](#data)
 - [Figures](#figures)
 - [Tables](#tables)
 - [Videos](#videos)
@@ -53,10 +54,16 @@ Create a dedicated Python environment and install all required packages:
 ```bash
 # Create virtual environment
 python -m venv .quctrl
+```
+```bash
 source .quctrl/bin/activate # On Windows: quctrl\Scripts\activate
+```
 
+```bash
 # Install all dependencies
 python -m pip install --upgrade pip
+```
+```bash
 python -m pip install -r requirements.txt
 ```
 
@@ -112,6 +119,10 @@ quctrl-tutorial/
     │   └── generated_figs/    # Output directory for generated figures
     └── videos/                # Video files
 ```
+
+## Notebooks
+
+Jupyter notebooks accompanying the paper are available under `src_code/notebooks/`.
 
 ## Data
 

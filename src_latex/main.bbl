@@ -2060,8 +2060,8 @@
   {Tsitsiklis}},\ }\bibfield  {title} {\bibinfo {title} {Actor-critic
   algorithms},\ }\href {https://doi.org/10.1137/S0363012901385691} {\bibfield
   {journal} {\bibinfo  {journal} {Advances in neural information processing
-  systems}\ }\textbf {\bibinfo {volume} {12}} (\bibinfo {year}
-  {1999})}\BibitemShut {NoStop}%
+  systems}\ }\textbf {\bibinfo {volume} {12}},\ \bibinfo {pages} {1008–1014}
+  (\bibinfo {year} {1999})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Watkins}\ and\ \citenamefont
   {Dayan}(1992)}]{watkins1992q-learning}%
   \BibitemOpen

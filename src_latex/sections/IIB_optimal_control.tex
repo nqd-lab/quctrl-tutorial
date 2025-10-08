@@ -2,8 +2,6 @@
 
 In the previous section we discussed the basics of adiabatic control and the toolbox of shortcuts to adiabaticity. That framework assumed that the initial and target states of a control problem are given in terms of eigenstates of our Hamiltonian for different values of the control parameter. In some scenarios, however, this might not be the case. In this section we introduce the tools of quantum optimal control, which will allow us to tackle arbitrary quantum control problems by systematically searching for the optimal form of the control fields that drive a quantum system to given target configuration. \steve{Typical optimal control implementations require repeated numerical evaluations of the full dynamics of a quantum system, and thus are often, in practice, restricted to small systems. Nevertheless, the success of optimal control techniques in solving control problems in few-body settings is a testament to its importance in the field. In the following we introduce and illustrate these tools by revisiting some of the models introduced in Sec. \ref{sec:STA} and analyzing them through the lens of optimal control. First, we will study optimal state control for a single qubit system obeying  the Landau-Zener Hamiltonian (c.f. Sec.~\ref{sec:LandauZener}), and then its extension to unitary gate preparation with a model of phase-only control. Finally, we will apply optimal control to the problem of generating entangled states in an extended version of the all-to-all Ising model introduced in Sec.~\ref{ex:LMGmodel}.}
 
-% \steve{STEVE COMMENT: Add in a final sentence similar to the end of the STA section that explicitly says what examples will be considered.}\\
-% \steve{FOR REFERENCE THIS IS FROM THE STA SECTION: We will explicitly consider the control of a simple two level system described by the Landau-Zener model in Sec.~\ref{sec:LandauZener}, which will serve as a paradigmatic example that will also be considered when discussing the other control techniques that are a focus of this tutorial, namely optimal control in Sec.~\ref{subsec:QOC_example_state} and reinforcement learning in Sec.~\ref{sec:RL_1q} and~\ref{sec:RL_2q}. We will also consider the application of these techniques to simple many-body settings embodied by three variations of the Ising model: (i) nearest neighbor, (ii) infinite range, and (iii) non-integrable.}
 
 \subsection{Basic statement of an optimal control problem}
 \label{subsec:QOC_intro}
@@ -85,14 +83,13 @@ Quantum speed limit time & $\tau_{\mathrm{QSL}}^\ast$ \\
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.55\columnwidth]{QOC_landscape.png}
+\includegraphics[width=0.55\columnwidth]{QOC_landscape.pdf}
 \caption{Quantum control landscapes are determined by the dependence of the cost function $J(\bm{\alpha})$ on the control variables $\bm{\alpha}$. Main figure depicts how the optimal solutions, initial seeds, and optimization steps would appear in a two-dimensional landscape (note that real control problems typically have much more than $M=2$ dimensions). An optimization routine starts with an initial guess for the control variable $\bm{\alpha}_0$ which typically lands far from an extrema of the landscape, meaning that the evolution of the quantum state is far from the target configuration at the final time. The optimization consists in updating the control variables sequentially until an optimum is achieved $\bm{\alpha}_{\text{opt}}$. In the presence of constraints, quantum control problems can have rugged landscapes with suboptimal extrema, as depicted in subfigure (a). In such cases, using many different initial seeds helps explore various parameter regions of the landscape.}
 \label{fig:QOC_landscapes}
 \end{figure}
 
 
 The definition of the control Hamiltonian, e.g. Eq. (\ref{eq:QOC_hami}), and parametrization, c.f. Eq. (\ref{eq:QOC_parametrization}), together with the choice of initial and target states ($\ket{\psi_0}$ and $\ket{\psi_\ast}$ for state control, $\mathds{1}$ and $U_\ast$ for unitary control), completely determine the cost function $J(\bm{\alpha})$, which can be seen as an optimization \textit{landscape}. Each point on the landscape corresponds to a different control field, with optimal protocols being global minima. The goal of any optimization algorithm is to traverse this landscape, starting from the initial guess $\bm{\alpha}_0$, to eventually reach the global extremum via a series of updates of the control parameters $\bm{\alpha}_0\rightarrow\bm{\alpha}_1\rightarrow \ldots \rightarrow \bm{\alpha}_{\text{opt}}$. Here, we assume that such updates are done via a local search (instead of a global one), where only properties about the current point and its surrounding region informs the update rule. This process is depicted in Fig. \ref{fig:QOC_landscapes}. The properties of the landscape determine the hardness of finding a solution to the control problem. In a generic optimization problem, the landscape is rugged and filled with suboptimal minima or traps, as can be seen in Fig.~\ref{fig:QOC_landscapes}(a), which often increases the computational expense of finding a near-optimal solution. In this scenario, it is typically convenient to balance the computational cost of the optimization between the exploration and the exploitation of the landscape. An optimization landscape can be explored by starting the search multiple times with different initial guesses (or ``seeds'') which aim to cover different regions of parameter space. Each run is then exploited by allowing the search a sufficient number of iterations to converge to a good solution.  For quantum control problems, remarkably, it has been shown that optimization landscapes tend to have benign features \cite{rabitz2004}; in particular, provided there are no constraints to the control \steve{problem} \cite{zhdanov2015}, quantum control landscapes can be shown to be generically devoid of traps \steve{in fully controllable systems} (see Fig. \ref{fig:QOC_landscapes}). \steve{In practice, however, constraints on control problems (which we discuss below) will typically affect the topology of control landscapes}. 
-% \steve{REF COMMENT: There are a lot of caveats on this that are hard to satisfy especially in q. computing.} 
 Interestingly, recent developments in quantum computing, particularly variational quantum algorithms, have revealed new properties of quantum control landscapes, like the phenomenon of barren plateaus, which we discuss briefly in Sec. \ref{outlook_sec_qc}.
 
 Often, constraints need to be taken into account when solving practical quantum control problems, and thus understanding their effect on the optimization search is an important task. Constraints can be broadly divided into two categories: 
@@ -202,7 +199,6 @@ We can now construct a basic optimal control routine by following these steps:
 
 In the remainder of this section, we consider two examples in which we illustrate this procedure for both state and unitary control in a two-level system.
 
-% \pablo{We attach to this Tutorial  example scripts that implement all these steps in Python, using optimization routines from the Scipy package}. 
 
 \subsection{Examples}
 \subsubsection{Example: optimal control in the Landau-Zener model}
@@ -343,146 +339,3 @@ Superconducting circuits have also successfully implemented optimal control tool
 
 Finally, we briefly mention that quantum optimal control tools have a long history beyond the quantum information processing platforms mentioned here. In particular, optimization is a standard tool in composite pulse design in NMR experiments~\cite{bonnard2012}. Also, the control of chemical reactions using shaped laser pulses was one of the first applications of quantum optimal control theory, see for instance Ref.~\cite{tannor1985}.
 
-%\clearpage
-
-% \subsection{Worked Example on Geometric Gates--Likely to be commented out.}
-% \textbf{Note that several things in this example have overlap with 
-% general stuff above, so need to edit this out later on!}
-
-% \paragraph*{Intro.}
-% The following example features the 
-% example of a so-called \textit{geometric gate}, which is a useful 
-% concept in many different quantum technology platforms that are 
-% based on qubits, hence it has great generality. Here we will 
-% focus on a single qubit, but note that the principle of geometric
-% gates can be extended to two- or multi-qubit gates as well. 
-% The exposition here is mainly based on the discussion in 
-% \cite{daems2013} and \cite{xu2020}.
-
-% \paragraph*{Setup.}
-% Denoting the qubit ground and excited states as $|0\rangle$ and $|1\rangle$, 
-% respectively, we must find the wave function $|\psi(t)\rangle$ at 
-% all subsequent times by solving
-% \begin{align}
-% i\frac{\partial}{\partial t}|\psi(t)\rangle=H_d(t)|\psi(t)\rangle,
-% \end{align}
-% where $H_d(t)$ a the time-dependent driving Hamiltonian to control 
-% the qubit system. 
-
-% We can infer a lot of information about the state of the system 
-% simply by the fact that whatever $H_d(t)$ may be, the state will 
-% have to be parametrized by some curve in the Hilbert space of a 
-% qubit, i.e. on the Bloch sphere. From elementary expositions, we 
-% know that a state at some time $t_0$ can be parametrized by two angle on the Bloch sphere, 
-% $\alpha$ and $\beta$ according to 
-% \begin{align}
-% |\psi(t_0)\rangle=\cos\frac{\alpha}{2} e^{-i\beta/2}|0\rangle+\sin\frac{\alpha}{2} e^{i\beta/2}|1\rangle,
-% \end{align}
-% up to a global phase factor.
-% For a time-dependent Hamiltonian, we can use a similar parametrization 
-% of the state, but now with time-dependent angles, $\alpha(t)$ and $\beta(t)$, 
-% according to 
-% \begin{align}
-% |\psi(t)\rangle=e^{-i f(t)/2}\left[\cos\frac{\alpha(t)}{2} e^{-i\beta(t)/2}|0\rangle
-% +\sin\frac{\alpha(t)}{2} e^{i\beta/(t)2}|1\rangle\right].
-% \end{align}
-% Here $f(t)$ is a function that describes an overall phase \cite{daems2013}, 
-% whose significance we will soon see.
-% Likewise, since the Schr{\"o}dinger equation generates unitary time-evolution, 
-% we can infer that there is another states orthogonal to $|\psi(t)\rangle$ at 
-% all times, that we parametrize as 
-% \begin{align}
-% |\phi(t)\rangle=e^{i f(t)/2}\left[-\sin\frac{\alpha(t)}{2} e^{-i\beta(t)/2}|0\rangle
-% +\cos\frac{\alpha(t)}{2} e^{i\beta/(t)2}|1\rangle\right],
-% \end{align}
-% and one easily checks that $\langle\phi(t)|\psi(t)\rangle=0$ for any $\tau$. This will 
-% be handy to describe the general gate operation.
-
-% To implement a geomtric gate, we must modulate the parameters in $H_d(t)$
-% to that we make a closer curve within the Hilbert space of the qubit. 
-% Assuming that the evolution takes place within a time $0\leq t\leq \tau$, 
-% we require $\alpha(0)=\alpha(\tau)$ and $\beta(0)=\beta(\tau)$. Hence, 
-% the state is the same except for a global phase factor 
-% \begin{align}
-% \gamma=\frac{f(0)-f(\tau)}{2}=\gamma_D+\gamma_G
-% \end{align}
-% that has a dynamical and a geometric contribution. The
-% dynamical contribution is 
-% \begin{align}
-% \gamma_D=-\in\tau_{0}^{\tau} \langle \psi(t)|H_d(t)|\psi(t)\rangle,
-% \end{align}
-% while the geometric phase is given by the formula
-% \begin{align}
-% \gamma_G=i\in\tau_{0}^{\tau} \langle \tilde\psi(t)|\frac{\partial}{\partial t}|\tilde\psi(t)\rangle,
-% \end{align}
-% where for convenience, we have introduced $|\tilde\psi(t)\rangle=e^{if(t)/2}|\psi(t)\rangle$.
-% Note the latter does not depend on the Hamiltonian, but rather on the path and 
-% the change in the state in Hilbert space during the evolution. This is 
-% the origin of the name, geometric phase. 
-
-% To achieve a geometric gate, we need to eliminate the effect of the 
-% dynamical phase, and hence we assume that we make a global phase change 
-% at $t=\tau$ such that we can assume $\gamma_D=0$. Note that we did not 
-% discuss any conditions of adiabatic evolution, and the discussion is 
-% in principle general thus far. Hence, we can use non-adiabatic 
-% changes in the driving Hamiltonian, but of course the concrete setting
-% and platform will set the limits on how this may impact the dynamics. 
-% For example, typical qubits consist of an effective two-level subspace
-% of a quantum system with other states in the spectrum, and we still need
-% to observe population into those states, and counteract those effects by 
-% carefully tailored driving protocols as discuss earlier. 
-
-% \paragraph*{A single-qubit geometric gate.}
-% Assuming $\gamma_D=0$, we have $\gamma=\gamma_G$ at time $t=\tau$. 
-% We can now write down the total effect of the time-evolution on 
-% the system by observing that $|\psi(t)\rangle$ and $|\phi(t)\rangle$
-% will accumulate phases $\gamma$ and $-\gamma$, respectively. Hence, we
-% can write the unitary operator responsible for the dynamics from 
-% $t=0$ to $t=\tau$ as 
-% \begin{align}
-% U(\tau)=e^{i\gamma}|\psi(t)\rangle\langle\psi(t)|+
-% e^{-i\gamma}|\phi(t)\rangle\langle\phi(t)|.
-% \end{align}
-% Since we are assuming that 
-% $\alpha(0)=\alpha(\tau)$ and $\beta(0)=\beta(\tau)$, we may insert the 
-% two states and obtain the matrix form
-% \begin{align}
-% U(\tau)=
-% \left[
-% \begin{matrix}
-% \cos\gamma+i\cos\alpha\sin\gamma & i\sin\gamma\sin\alpha\, e^{-i\beta}\\
-% i\sin\gamma\sin\alpha\, e^{i\beta} & \cos\gamma-i\cos\alpha\sin\gamma
-% \end{matrix}
-% \right],
-% \end{align}
-% where $\alpha=\alpha(0)$ and $\beta=\beta(0)$ are the starting angles 
-% of the time-evolution. This can also be written in terms of the 
-% Pauli matrices in operator form
-% \begin{align}
-% U(\tau)=\exp\left(i\gamma \vec{n}\cdot \vec{\sigma}\right),
-% \end{align}
-% where $\vec{n}=(\sin\alpha\cos\beta,\sin\alpha\sin\beta,\cos\alpha)$ 
-% is a unit vector and $\vec{\sigma}$ is the 
-% vector of Pauli matrices. According to the usual conventions of 
-% operators acting on a qubit, this operation is a rotation around 
-% the spin-space axis $\vec{n}$ by an angle $-2\gamma$. 
-% Hence, we have effectively applied a geometric 
-% single-qubit gate, and can pick among different options by 
-% using the boundary conditions given by $\alpha$ and $\beta$.
-
-% \paragraph*{An example.}
-% We now consider an example of a driving Hamiltonian
-% \begin{align}
-% H_d(t)=
-% \frac{1}{2}\left[
-% \begin{matrix}
-% 0 & \Omega(t) \\
-% \Omega(t) & 0 
-% \end{matrix}
-% \right],
-% \end{align}
-% which corresponds to a laser field or microwave fields driving with 
-% time-dependent Rabi frequency $\Omega(t)$, and we have assume that
-% the driving Hamiltonian is real for simplicity. 
-
-% TO do: WRITE EQUATIONS, DISCUSS X GATE, INTRODUCE OPTIMAL CONTROL.
